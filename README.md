@@ -14,7 +14,7 @@ La configuration de mes stores se base sur le travail déjà effectué par Auré
 3. [Intégration](#Intégration)
 
 # Construction
-Il n'y pour ainsi dire rien à construitre, il faut juste brancher les modules Shelly 2.5 entre vos interrupteurs mécaniques existants et vos moteurs des stores. Le schéma d'Aurélien est très explicatif et résume l'ensemble des connexions à faire. Le challenge réside à trouver la place pour les modules Shelly et à bien couper le courant avant de faire les branchemens.
+Il n'y pour ainsi dire rien à construire, il faut juste brancher les modules Shelly 2.5 entre vos interrupteurs mécaniques existants et vos moteurs des stores. Le schéma d'Aurélien est très explicatif et résume l'ensemble des connexions à faire. Le challenge réside à trouver la place pour les modules Shelly et à bien couper le courant avant de faire les branchements.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/shelly-2-volets-roulants-roller-shutter-wifi.jpg" alt="Shelly 2.5"
 	title="Schéma de branchement" width="600" height="400" />
