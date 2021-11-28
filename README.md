@@ -1,4 +1,5 @@
-# Stores avec modules Shelly 2.5 (en construction)
+# Stores avec modules Shelly 2.5
+## Mais c'est si simple!
 
 Automatisation de stores avec modules Shelly 2.5 sur Home Assistant
 
@@ -19,7 +20,7 @@ Il n'y pour ainsi dire rien à construitre, il faut juste brancher les modules S
 	title="Schéma de branchement" width="600" height="400" />
 
 
-# Configuration des modules Shelly 2.5
+# Configuration
 
 Aurélien décrit la procédure de connexion à travers l'application Shelly Cloud sur smartphone. Je préfére passer par l'option de la connexion par un browser, ce qui évite aussi de passer par le cloud de Shelly.
 
@@ -44,7 +45,7 @@ Cette procédure nécessite de connecter les modules Shelly les uns après les a
 Il y a une fonction "Calibration" dans le menu de configuration. Cette calibration permet de mémoriser les positons ouvertes, fermées et intermédiaires de vos stores. Grâce à cette calibration, vous pourrez aussi commander la position précise de vos stores depuis Home Assistant 
 
 
-# Intégration dans Home Assistant
+# Intégration
 
 Une fois configuré, chaque nouveau module est découvert automatiquement dans Home Assistant, il suffi de cliquer sur "Configure" dans les intégrations pour changer son nom et lui affecter une pièce dans la maison.
 
