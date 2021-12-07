@@ -7,11 +7,15 @@ La configuration de mes stores se base sur le travail déjà effectué par Auré
 
 [Shelly 2.5 : Comment installer le module domotique wifi et piloter des volets roulants avec Jeedom](https://www.domo-blog.fr/shelly-2-5-comment-installer-le-module-domotique-wifi-volets-roulants-jeedom/)
 
+<br />
+
 # Table des matières
 
 1. [Construction](#Construction)
 2. [Configuration](#Configuration)
 3. [Intégration](#Intégration)
+
+<br />
 
 # Construction
 Le challenge va consister à trouver de la place dans le boîtier de vos interrupteurs pour placer les modules Shelly 2.5. Je ne vais pas m’étendre sur les options à disposition ; dans mon cas le boîtier encastrable existant était suffisamment profond pour pouvoir ajouter les modules à plat sur l’arrière des interrupteurs. Avec un câblage organisé et compact, j’ai réussi à tout caser sans devoir agrandir l’espace.
@@ -32,14 +36,14 @@ Sur le bas on voit les 4 interrupteurs à 2 boutons mécaniques (montée/descent
 
 
 ## Câblage des 4 modules
-Sachant que j’allais pouvoir mettre les modules sur l’arrière des interrupteurs, j’ai défini la position de chacun d’eux et leur ai attribué une position définie.
+Sachant que j’allais pouvoir mettre les modules sur l’arrière des interrupteurs, j’ai défini la position de chacun d’eux de manière à utiliser l'espace disponible au mieux et je leur ai attribué une position définie. C'est sur cette base que j'ai ensuite défini le câblage.
 
 **Note:** Libre à vous de faire le montage et de configurer les modules ensuite. Dans le cas présent, j’ai numéroté les modules et je les ai configurés avant le montage en les alimentant tel que décrit dans la procédure de configuration dans le chapitre suivant.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage2.jpg" alt="Câblage initial"
 	title="Câblage initial" width="600" height="400" />
 
-Comme on le voit sur le schéma de branchement, il faut alimenter les modules Shelly 2.5 sur les bornes L, L et N, ce qui en soit fait déjà pas mal de câbles. Je choisi l’option des bornes Wago Compact à 5 conducteurs pour optimiser le câblage au maximum et réduire l’espace utilisé.
+Comme on le voit sur le schéma de branchement, il faut alimenter les modules Shelly 2.5 sur les bornes L, L et N, ce qui en soit fait déjà pas mal de câbles. J'ai choisi l’option des bornes Wago Compact à 5 conducteurs pour optimiser le câblage au maximum et réduire l’espace utilisé.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage3.jpg" alt="Optimisation du câblage"
 	title="Optimisation du câblage" width="600" height="400" />
@@ -55,10 +59,7 @@ Reste ensuite à placer l’ensemble et finaliser le câblage, toujours sur la b
 	title="Résultat final" width="400" height="700" />
 
 
-
-
-
-
+<br />
 
 # Configuration
 
@@ -77,22 +78,24 @@ Cette procédure nécessite de connecter les modules Shelly les uns après les a
  - Device Type: Roller Shutter
  - Power ON Parameters: STOP - Configure Shelly roller to STOP when it has power.
  - Button Type: Momentary
- - Device Name: Soyez logique si vous avec plusieurs modules...
+ - Device Name: Soyez logique si vous avec plusieurs modules. Le nom sera aussi reprit dans Home Assistant.
  - LED Light Control: J'ai choisi de désactiver la LED
 
 ## Calibration
 
-Il y a une fonction "Calibration" dans le menu de configuration. Cette calibration permet de mémoriser les positons ouvertes, fermées et intermédiaires de vos stores. Grâce à cette calibration, vous pourrez aussi commander la position précise de vos stores depuis Home Assistant.
+Il y a une fonction "Calibration" dans le menu de configuration. Cette calibration permet de mémoriser les positons ouvertes, fermées et intermédiaires de vos stores.  
+Grâce à cette calibration, depuis Home Assistant, vous pourrez aussi commander la position précise en % de l'ouverture totale de vos stores.
 
+<br />
 
 # Intégration
 
-Une fois configuré, chaque nouveau module est découvert automatiquement dans Home Assistant, il suffi de cliquer sur "Configure", pour chaque module, dans les intégrations pour changer son nom et lui affecter une pièce dans la maison. Une fois configurer, l'ensemble de vos modules apparaîtra sous forme de liste dans l'intergration Shelly.
+Une fois configuré, chaque nouveau module est découvert automatiquement dans Home Assistant, il suffi de cliquer sur "Configure", pour chaque module, dans les intégrations pour changer son nom et lui affecter une pièce dans la maison. Après configuration, l'ensemble de vos modules apparaîtra sous forme de liste dans l'intergration Shelly.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/shelly_integration.jpg" alt="Intégration Shelly HA"
 	title="Intégration Shelly HA" width="300" height="194" />
 
-Affecter une pièce à chaque store est intéressant, car ça permet d'actionner les stores d'une pièce de manière synchronisée avec une seule commande, sans créer un groupe.  
+Affecter une pièce à chaque store est intéressant, car ça permet d'actionner les stores d'une même pièce de manière synchronisée avec une seule commande, sans créer un groupe.  
 Ci-dessous un exemple de code à ajouter dans votre fichier "scripts.yaml" avec 3 scripts qui affectent tous les stores inclus dans la pièce "cuisine":
 * Fermeture complètes des stores (stores_cuisine_closed)
 * Ouverture complètes des stores (stores_cuisine_open)
@@ -127,7 +130,7 @@ stores_cuisine_50:
   icon: mdi:blinds
 ```
 
-Une fois les scripts activées (redémarrage de HA ou de la partie scripts), il est possible de les utiliser pour différents fonctions, comme par exemple créer une carte de commande dans Lovelace.
+Une fois les scripts activées (redémarrage de HA ou de la partie "Scripts"), il est possible de les utiliser pour différentes fonctions, comme par exemple créer une carte de commande dans Lovelace.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/stores_card.jpg" alt="Intégration Shelly HA"
 	title="Intégration Shelly HA" width="300" height="110" />
