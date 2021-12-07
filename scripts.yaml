@@ -1,0 +1,27 @@
+
+stores_cuisine_closed:
+  sequence:
+    - service: cover.close_cover
+      target:
+        area_id: cuisine
+  mode: single
+  alias: Stores cuisine - closed
+  icon: mdi:blinds
+stores_cuisine_open:
+  sequence:
+    - service: cover.open_cover
+      target:
+        area_id: cuisine
+  mode: single
+  alias: Stores cuisine - open
+  icon: mdi:blinds
+stores_cuisine_50:
+  alias: Stores cuisine - 50%
+  sequence:
+    - service: cover.set_cover_position
+      target:
+        area_id: cuisine
+      data:
+        position: 50
+  mode: single
+  icon: mdi:blinds
