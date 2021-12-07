@@ -39,7 +39,7 @@ Sachant que j’allais pouvoir mettre les modules sur l’arrière des interrupt
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage2.jpg" alt="Câblage initial"
 	title="Câblage initial" width="600" height="400" />
 
-Comme on le voit sur le schéma de branchement, il faut alimenter les modules Shelly 2.5 sur les bornes L, L et N, ce qui en soit fait déjà pas mal de câbles. Je choisi l’option des bornes Wago Compact à 5 conducteurs pour optimiser le câblage au maximum et réduire l’espace utiliser.
+Comme on le voit sur le schéma de branchement, il faut alimenter les modules Shelly 2.5 sur les bornes L, L et N, ce qui en soit fait déjà pas mal de câbles. Je choisi l’option des bornes Wago Compact à 5 conducteurs pour optimiser le câblage au maximum et réduire l’espace utilisé.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage3.jpg" alt="Optimisation du câblage"
 	title="Optimisation du câblage" width="600" height="400" />
@@ -82,14 +82,77 @@ Cette procédure nécessite de connecter les modules Shelly les uns après les a
 
 ## Calibration
 
-Il y a une fonction "Calibration" dans le menu de configuration. Cette calibration permet de mémoriser les positons ouvertes, fermées et intermédiaires de vos stores. Grâce à cette calibration, vous pourrez aussi commander la position précise de vos stores depuis Home Assistant 
+Il y a une fonction "Calibration" dans le menu de configuration. Cette calibration permet de mémoriser les positons ouvertes, fermées et intermédiaires de vos stores. Grâce à cette calibration, vous pourrez aussi commander la position précise de vos stores depuis Home Assistant.
 
 
 # Intégration
 
-Une fois configuré, chaque nouveau module est découvert automatiquement dans Home Assistant, il suffi de cliquer sur "Configure" dans les intégrations pour changer son nom et lui affecter une pièce dans la maison.
+Une fois configuré, chaque nouveau module est découvert automatiquement dans Home Assistant, il suffi de cliquer sur "Configure", pour chaque module, dans les intégrations pour changer son nom et lui affecter une pièce dans la maison. Une fois configurer, l'ensemble de vos modules apparaîtra sous forme de liste dans l'intergration Shelly.
+
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/shelly-integration.jpg" alt="Intégration Shelly HA"
+	title="Intégration Shelly HA" width="300" height="200" />
+
+Affecter une pièce à chaque store est intéressant, car ça permet d'actionner les stores d'une pièce de manière synchronisée avec une seule commande, sans créer un groupe.  
+Ci-dessous un exemple de code à ajouter dans votre fichier "scripts.yaml" avec 3 scripts qui affectent tous les stores inclus dans la pièce "cuisine":
+* Fermeture complètes des stores (stores_cuisine_closed)
+* Ouverture complètes des stores (stores_cuisine_open)
+* Ouverture des stores à 50% (stores_cuisine_50)
+
+```yaml
+stores_cuisine_closed:
+  sequence:
+    - service: cover.close_cover
+      target:
+        area_id: cuisine
+  mode: single
+  alias: Stores cuisine - closed
+  icon: mdi:blinds
+stores_cuisine_open:
+  sequence:
+    - service: cover.open_cover
+      target:
+        area_id: cuisine
+  mode: single
+  alias: Stores cuisine - open
+  icon: mdi:blinds
+stores_cuisine_50:
+  alias: Stores cuisine - 50%
+  sequence:
+    - service: cover.set_cover_position
+      target:
+        area_id: cuisine
+      data:
+        position: 50
+  mode: single
+  icon: mdi:blinds
+```
+
+Une fois les scripts activées (redémarrage de HA ou de la partie scripts), il est possible de les utiliser pour différents fonctions, comme par exemple créer une carte de commande dans Lovelace.
+
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/stores_card.jpg" alt="Intégration Shelly HA"
+	title="Intégration Shelly HA" width="300" height="200" />
+
+```yaml
+type: horizontal-stack
+title: Stores cuisine
+cards:
+  - type: button
+    tap_action:
+      action: toggle
+    entity: script.stores_cuisine_closed
+    name: Closed
+  - type: button
+    tap_action:
+      action: toggle
+    name: 50%
+    entity: script.stores_cuisine_50
+  - type: button
+    tap_action:
+        action: toggle
+    entity: script.stores_cuisine_open
+    icon: mdi:blinds-open
+    name: Open
+```
 
 Le tour est joué, vous pouvez vous lancer maintenant dans l'automatisation de vos stores.
-
-
 
