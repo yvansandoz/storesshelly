@@ -89,8 +89,8 @@ Il y a une fonction "Calibration" dans le menu de configuration. Cette calibrati
 
 Une fois configuré, chaque nouveau module est découvert automatiquement dans Home Assistant, il suffi de cliquer sur "Configure", pour chaque module, dans les intégrations pour changer son nom et lui affecter une pièce dans la maison. Une fois configurer, l'ensemble de vos modules apparaîtra sous forme de liste dans l'intergration Shelly.
 
-<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/shelly-integration.jpg" alt="Intégration Shelly HA"
-	title="Intégration Shelly HA" width="300" height="200" />
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/shelly_integration.jpg" alt="Intégration Shelly HA"
+	title="Intégration Shelly HA" width="300" height="194" />
 
 Affecter une pièce à chaque store est intéressant, car ça permet d'actionner les stores d'une pièce de manière synchronisée avec une seule commande, sans créer un groupe.  
 Ci-dessous un exemple de code à ajouter dans votre fichier "scripts.yaml" avec 3 scripts qui affectent tous les stores inclus dans la pièce "cuisine":
@@ -130,7 +130,7 @@ stores_cuisine_50:
 Une fois les scripts activées (redémarrage de HA ou de la partie scripts), il est possible de les utiliser pour différents fonctions, comme par exemple créer une carte de commande dans Lovelace.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/stores_card.jpg" alt="Intégration Shelly HA"
-	title="Intégration Shelly HA" width="300" height="200" />
+	title="Intégration Shelly HA" width="300" height="110" />
 
 ```yaml
 type: horizontal-stack
