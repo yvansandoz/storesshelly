@@ -14,10 +14,50 @@ La configuration de mes stores se base sur le travail déjà effectué par Auré
 3. [Intégration](#Intégration)
 
 # Construction
-Il n'y pour ainsi dire rien à construire, il faut juste brancher les modules Shelly 2.5 entre vos interrupteurs mécaniques existants et vos moteurs des stores. Le schéma d'Aurélien est très explicatif et résume l'ensemble des connexions à faire. Le challenge réside à trouver la place pour les modules Shelly et à bien couper le courant avant de faire les branchements.
+Le challenge va consister à trouver de la place dans les boîtier de vos interrupteurs pour placer les modules Shelly 2.5. Je ne vais pas m’étendre sur les options à disposition ; dans mon cas le boîtier encastrable existant était suffisamment profond pour pouvoir ajouter les modules à plat sur l’arrière des interrupteurs. Avec un câblage organisé et compact, j’ai réussi à tout caser sans devoir agrandir l’espace.
+
+En termes de câblage, il faut brancher les modules Shelly 2.5 entre vos interrupteurs mécaniques existants et vos moteurs des stores. Le schéma d’Aurélien est très explicatif et résume l’ensemble des connexions à faire. 
+
+Attention de bien couper le courant avant de faire les branchements.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/shelly-2-volets-roulants-roller-shutter-wifi.jpg" alt="Shelly 2.5"
 	title="Schéma de branchement" width="600" height="400" />
+
+
+## Situation de départ
+Sur le bas on voit les 4 interrupteurs à 2 boutons mécaniques (montée/descente) pour activer 4 stores séparés.
+
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage1.jpg" alt="Situation de départ"
+	title="Situation de départ" width="600" height="400" />
+
+
+## Câblage des 4 modules
+Sachant que j’allais pouvoir mettre les modules sur l’arrière des interrupteurs, j’ai défini la position de chacun d’eux et leur ai attribué une position définie.
+
+**Note:** Libre à vous de faire le montage et de configurer les modules ensuite. Dans le cas présent, j’ai numéroté les modules et je les ai configurés avant le montage en les alimentant tel que décrit dans la procédure de configuration dans le chapitre suivant.
+
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage2.jpg" alt="Câblage initial"
+	title="Câblage initial" width="600" height="400" />
+
+Comme on le voit sur le schéma de branchement, il faut alimenter les modules Shelly 2.5 sur les bornes L, L et N, ce qui en soit fait déjà pas mal de câble. Je choisi l’option des bornes Wago Compact à 5 conducteurs pour optimiser le câblage au maximum et réduire l’espace utiliser.
+
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage3.jpg" alt="Optimisation du câblage"
+	title="Optimisation du câblage" width="600" height="400" />
+
+Reste ensuite à placer l’ensemble et finaliser le câblage, toujours sur la base du schéma.
+
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage4.jpg" alt="Branchements"
+	title="Branchements" width="600" height="400" />
+
+
+## Résultat final
+<img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage5.jpg" alt="Résultat final"
+	title="Résultat final" width="600" height="400" />
+
+
+
+
+
 
 
 # Configuration
