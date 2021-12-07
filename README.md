@@ -37,7 +37,7 @@ Sachant que j’allais pouvoir mettre les modules sur l’arrière des interrupt
 **Note:** Libre à vous de faire le montage et de configurer les modules ensuite. Dans le cas présent, j’ai numéroté les modules et je les ai configurés avant le montage en les alimentant tel que décrit dans la procédure de configuration dans le chapitre suivant.
 
 <img src="https://github.com/yvansandoz/storesshelly/blob/main/pictures/montage2.jpg" alt="Câblage initial"
-	title="Câblage initial" width="400" height="600" />
+	title="Câblage initial" width="600" height="400" />
 
 Comme on le voit sur le schéma de branchement, il faut alimenter les modules Shelly 2.5 sur les bornes L, L et N, ce qui en soit fait déjà pas mal de câble. Je choisi l’option des bornes Wago Compact à 5 conducteurs pour optimiser le câblage au maximum et réduire l’espace utiliser.
 
